@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #FFFFFF;
+    width: 800px;
+    height: 600px;
+}
+
+img {
+    width: 100px;
+}
+
+ul {
+    position: absolute;
+    width: 720px;
+    list-style: none;
+    top: 50%;
+    margin-top: -109px;
+    left: 50%;
+    margin-left: -360px;
+}
+
+ul li {
+    width: 100px;
+    float: left;
+    text-align: center;
+    margin-right: 20px;
+}

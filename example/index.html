@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>Mango Facebook Live Reactions Example</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<ul>
+    <li>
+        <p><img src="img/php.svg"></p>
+        <img src="img/like.gif"><br>
+        <div id="reactions-like">0</div>
+    </li>
+    <li>
+        <p><img src="img/python.svg"></p>
+        <img src="img/love.gif"><br>
+        <div id="reactions-love">0</div>
+    </li>
+    <li>
+        <p><img src="img/javascript.svg"></p>
+        <img src="img/wow.gif"><br>
+        <div id="reactions-wow">0</div>
+    </li>
+    <li>
+        <p><img src="img/ruby.svg"></p>
+        <img src="img/haha.gif"><br>
+        <div id="reactions-haha">0</div>
+    </li>
+    <li>
+        <p><img src="img/java.svg"></p>
+        <img src="img/sad.gif"><br>
+        <div id="reactions-sad">0</div>
+    </li>
+    <li>
+        <p><img src="img/dotnet.svg"></p>
+        <img src="img/angry.gif"><br>
+        <div id="reactions-angry">0</div>
+    </li>
+</ul>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
+<script>
+    require(['../src/reactions'], function (mangoReactions) {
+        var options = {
+            "postID": 1875882335977618,
+            "access_token": "EAACZB8FGENw8BAISPyeckZB7d7fQw0ChnqA4LbZBSWZCP6j3d3f9lt3fp98PAm40JT4bSyrHb8U0SbJhRnZCH03FzQDvzqKL3GNyoTkUbTmFhgxrvFAC7SmtCZCoOt9nnXmeGmjh2eDmhzpdh7xOMlpZBTPn9LB5ulCjXUu2wBbZCAZDZD",
+            "callback": callbackFunction
+        };
+
+        var reactions = new mangoReactions(options);
+    });
+
+    function callbackFunction(data) {
+        document.getElementById("reactions-like").innerHTML = data.LIKE;
+        document.getElementById("reactions-love").innerHTML = data.LOVE;
+        document.getElementById("reactions-wow").innerHTML = data.WOW;
+        document.getElementById("reactions-haha").innerHTML = data.HAHA;
+        document.getElementById("reactions-sad").innerHTML = data.SAD;
+        document.getElementById("reactions-angry").innerHTML = data.ANGRY;
+    }
+</script>
+</body>
+</html>
