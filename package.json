@@ -1,0 +1,22 @@
+{
+  "name": "mango-facebook-live-reactions",
+  "version": "0.0.1",
+  "description": "Show in realtime Facebook Reactions from a live streaming video",
+  "main": "src/index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raulmangolin/Mango-Facebook-Live-Reactions.git"
+  },
+  "author": "Raul Mangolin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raulmangolin/Mango-Facebook-Live-Reactions/issues"
+  },
+  "homepage": "https://github.com/raulmangolin/Mango-Facebook-Live-Reactions#readme"
+}
