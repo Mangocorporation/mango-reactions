@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - 'node'
+branches:
+  only:
+  - travis
+before_install:
+- npm --version
+- phantomjs --version
