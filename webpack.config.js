@@ -17,6 +17,8 @@ var config = {
     'cheerio': 'window',
   },
   output: {
+    library: 'mangoReactions',
+    libraryTarget: 'umd',
     path: path.resolve(__dirname, 'public'),
     publicPath: 'public',
     filename: 'src/bundle.js'

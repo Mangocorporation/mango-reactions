@@ -7,7 +7,7 @@ WEBPACK_DEV_SERVER = node_modules/webpack-dev-server/bin/webpack-dev-server.js -
 KARMA_CMD = NODE_ENV=test node_modules/.bin/karma
 KARMA_ARGS =  start karma.config.js
 LINT_CMD = node_modules/eslint/bin/eslint.js
-LINT_ARGS = ./src/app/javascript/ --ext .jsx,.js
+LINT_ARGS = ./src/ --ext .jsx,.js
 
 NO_COLOR=\033[0m
 CYAN=\033[36;1m

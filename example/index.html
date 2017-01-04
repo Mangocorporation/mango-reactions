@@ -8,54 +8,50 @@
     <li>
         <p><img src="img/php.svg"></p>
         <img src="img/like.gif"><br>
-        <div id="reactions-like">0</div>
+        <div class="reactions" data-reaction="like">0</div>
     </li>
     <li>
         <p><img src="img/python.svg"></p>
         <img src="img/love.gif"><br>
-        <div id="reactions-love">0</div>
+        <div class="reactions" data-reaction="love">0</div>
     </li>
     <li>
         <p><img src="img/javascript.svg"></p>
         <img src="img/wow.gif"><br>
-        <div id="reactions-wow">0</div>
+        <div class="reactions" data-reaction="wow">0</div>
     </li>
     <li>
         <p><img src="img/ruby.svg"></p>
         <img src="img/haha.gif"><br>
-        <div id="reactions-haha">0</div>
+        <div class="reactions" data-reaction="haha">0</div>
     </li>
     <li>
         <p><img src="img/java.svg"></p>
         <img src="img/sad.gif"><br>
-        <div id="reactions-sad">0</div>
+        <div class="reactions" data-reaction="sad">0</div>
     </li>
     <li>
         <p><img src="img/dotnet.svg"></p>
         <img src="img/angry.gif"><br>
-        <div id="reactions-angry">0</div>
+        <div class="reactions" data-reaction="angry">0</div>
     </li>
 </ul>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
+<script src="../dist/bundle.js"></script>
 <script>
-    require(['../src/reactions'], function (mangoReactions) {
-        var options = {
-            "postID": 1875882335977618, //The live straming post ID (see README.md)
-            "access_token": "YOUR FACEBOOK ACCESS TOKEN HERE", //see README.md
-            "callback": callbackFunction
-        };
+    const options = {
+        postID: 1875882335977618, //The live straming post ID (see README.md)
+        access_token: 'YOUR FACEBOOK ACCESS TOKEN HERE', //see README.md
+        callback: callbackFunction
+    };
 
-        var reactions = new mangoReactions(options);
-    });
-
+    const reactions = new mangoReactions(options);
+    const list = document.querySelectorAll('.reactions');
     function callbackFunction(data) {
-        document.getElementById("reactions-like").innerHTML = data.LIKE;
-        document.getElementById("reactions-love").innerHTML = data.LOVE;
-        document.getElementById("reactions-wow").innerHTML = data.WOW;
-        document.getElementById("reactions-haha").innerHTML = data.HAHA;
-        document.getElementById("reactions-sad").innerHTML = data.SAD;
-        document.getElementById("reactions-angry").innerHTML = data.ANGRY;
+      list.forEach((item) =>{
+        const reaction = item.dataset.reaction;
+        item.textContent = data[reaction.toUpperCase()];
+      });
     }
 </script>
 </body>

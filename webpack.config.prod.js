@@ -19,6 +19,8 @@ var config = {
     'cheerio': 'window',
   },
   output: {
+    library: 'mangoReactions',
+    libraryTarget: 'umd',
     path: BUILD_DIR+'/',
     filename: 'bundle.js'
   },
