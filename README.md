@@ -1,7 +1,8 @@
 #mangoReactions
+[![Build Status](https://travis-ci.org/persocon/mango-reactions.svg?branch=master)](https://travis-ci.org/persocon/mango-reactions)
 Show realtime Facebook Reactions from a live streaming video
 
-![Example](example/readme/example.png) 
+![Example](example/readme/example.png)
 
 ##How to use
 ```javascript
@@ -37,7 +38,7 @@ Your Facebook valid Access Token (see bellow)
 
 **refreshTime**
 
-Amount in seconds that the code will run to update the values. 
+Amount in seconds that the code will run to update the values.
 Default is **5 seconds**.
 
 
@@ -46,4 +47,4 @@ I recommend you read this tutorial on how to start a streaming. It's very easy u
 https://obsproject.com/forum/resources/how-to-stream-to-facebook-live.391/
 
 ##How to get the post ID
-![How to get the post ID](example/readme/postid.png) 
+![How to get the post ID](example/readme/postid.png)
