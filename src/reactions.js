@@ -1,5 +1,3 @@
-// CREATE A CLASS WITH ALL THIS REFACTORED!
-// don't forget to make copy of things like the default options before changing stuff
 class mangoReactions {
   constructor(options) {
     // check defaults before copying
