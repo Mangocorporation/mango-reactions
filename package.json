@@ -18,5 +18,6 @@
     "bugs": {
         "url": "https://github.com/raulmangolin/mango-reactions/issues"
     },
-    "homepage": "https://github.com/raulmangolin/mango-reactions#readme"
+    "homepage": "https://github.com/raulmangolin/mango-reactions#readme",
+    "readmeFilename": "README.md"
 }
