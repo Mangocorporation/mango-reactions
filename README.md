@@ -1,6 +1,8 @@
 #manngoReactions
 Show in realtime Facebook Reactions from a live streaming video
 
+![Example](example/readme/example.png) 
+
 ##How to use
 ```javascript
 var mangoReactions = require('mango-reactions');
