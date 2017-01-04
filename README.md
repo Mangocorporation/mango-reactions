@@ -1,5 +1,5 @@
-#manngoReactions
-Show in realtime Facebook Reactions from a live streaming video
+#mangoReactions
+Show realtime Facebook Reactions from a live streaming video
 
 ![Example](example/readme/example.png) 
 
@@ -39,11 +39,6 @@ Your Facebook valid Access Token (see bellow)
 
 Amount in seconds that the code will run to update the values. 
 Default is **5 seconds**.
-
-**defaultCount**
-
-If you want to start with a minimum value of reactions to trick your users
-Default is **0 (zero)**.
 
 
 ##How to start a live video

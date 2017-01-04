@@ -14,7 +14,7 @@ class mangoReactions {
       reactions: ['LIKE', 'LOVE', 'WOW', 'HAHA', 'SAD', 'ANGRY'],
       error: false,
       message: [],
-      url: 'https://github.com/raulmangolin/Mango-Facebook-Live-Reactions',
+      url: 'https://github.com/raulmangolin/mango-reactions'
     };
     // prepare the variables;
     let error = false;
