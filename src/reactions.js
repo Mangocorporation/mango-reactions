@@ -13,7 +13,7 @@ define([], function () {
         _validateOptions(options);
         if (defaults.error) {
             console.log(defaults.message);
-            return false
+            return {"error": defaults.error, "message": defaults.message};
         }
 
         _moutRequest();
