@@ -3,7 +3,7 @@ node_js:
   - 'node'
 branches:
   only:
-  - travis
+  - master
 before_install:
 - npm --version
 - phantomjs --version
