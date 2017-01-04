@@ -20,7 +20,8 @@ module.exports = function(config) {
       'karma-webpack',
       'karma-phantomjs-launcher',
       'karma-spec-reporter',
-      'karma-sourcemap-loader'
+      'karma-sourcemap-loader',
+      'karma-babel-preprocessor'
     ],
     preprocessors: {
       'test/test.bundle.js': ['webpack', 'sourcemap']

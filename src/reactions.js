@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-fetch';
 class mangoReactions {
   constructor(options) {
     // check defaults before copying
@@ -12,7 +13,7 @@ class mangoReactions {
       reactions: ['LIKE', 'LOVE', 'WOW', 'HAHA', 'SAD', 'ANGRY'],
       error: false,
       message: [],
-      url: 'https://github.com/raulmangolin/mango-reactions'
+      url: 'https://github.com/raulmangolin/mango-reactions',
     };
     // prepare the variables;
     let error = false;
