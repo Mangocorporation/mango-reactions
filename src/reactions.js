@@ -6,15 +6,7 @@ class mangoReactions {
     this.init();
   }
   validateOptions(options) {
-    const defaults = {
-      postID: '',
-      access_token: '',
-      refreshTime: 5,
-      reactions: ['LIKE', 'LOVE', 'WOW', 'HAHA', 'SAD', 'ANGRY'],
-      error: false,
-      message: [],
-      url: 'https://github.com/raulmangolin/mango-reactions',
-    };
+    const [url, defRefreshTime] = ['https://github.com/raulmangolin/mango-reactions', 5];
     // prepare the variables;
     let error = false;
     let message = [];
@@ -23,26 +15,26 @@ class mangoReactions {
     let accessToken;
     let refreshTime;
     // check if callback exists and is a function
-    if (!options.callback && typeof options.callback === 'function') {
-      error = true;
-      message.push(`A callback function is required. See the documentation at ${defaults.url}.`);
-    } else {
+    if (options.callback && typeof options.callback === 'function') {
       callback = options.callback;
+    } else {
+      error = true;
+      message.push(`A callback function is required. See the documentation at ${url}.`);
     }
     // check if postID exists
-    if (!options.postID) {
-      error = true;
-      message.push(`A Facebook postID is required. See the documentation at ${defaults.url}.`);
-    } else {
+    if (options.postID) {
       postID = options.postID;
+    } else {
+      error = true;
+      message.push(`A Facebook postID is required. See the documentation at ${url}.`);
     }
     // check if access_token exists
-    if (!options.access_token) {
+    if (options.access_token) {
+      accessToken = options.access_token;
+    } else {
       error = true;
       message.push(`A Facebook access_token is required.
-        See the documentation at ${defaults.url}.`);
-    } else {
-      accessToken = options.access_token;
+        See the documentation at ${url}.`);
     }
     // check if refreshTime exists, if it's a number
     // and if it's greater then zero
@@ -51,7 +43,7 @@ class mangoReactions {
       options.refreshTime > 0) {
       refreshTime = options.refreshTime;
     } else {
-      refreshTime = defaults.refreshTime;
+      refreshTime = defRefreshTime;
     }
     // if error, throw an message with the errors and break;
     if (error) {
@@ -66,25 +58,9 @@ class mangoReactions {
       error,
       message,
       callback,
-      url: 'https://github.com/raulmangolin/Mango-Facebook-Live-Reactions',
+      url,
     };
     // return result
-    return result;
-  }
-  mountRequest() {
-    let result;
-    if (this.cached_query) {
-      result = this.cached_query;
-    } else {
-      // create a shallow copy of reactions to work with
-      const reactions = this.options.reactions.slice();
-      result = reactions.map((reaction) => {
-        const code = `reactions_${reaction.toLowerCase()}`;
-        return `reactions.type(${reaction}).limit(0).summary(total_count).as(${code})`;
-      }).join(',');
-      this.cached_query = result;
-    }
-
     return result;
   }
   parseRequest(data) {
@@ -108,7 +84,7 @@ class mangoReactions {
   doRequest() {
     const postID = this.options.postID;
     const accessToken = this.options.access_token;
-    const query = this.mountRequest();
+    const query = this.memoizedMountRequest();
     const callback = this.options.callback;
     const url = `https://graph.facebook.com/v2.8/?ids=${postID}&fields=${query}&access_token=${accessToken}`;
     fetch(url)
@@ -127,5 +103,22 @@ class mangoReactions {
     this.doRequest();
   }
 }
+// there's no way to make memoization on classes yet..
+mangoReactions.prototype.memoizedMountRequest = (function memoization() {
+  let cache;
+  return function cachedMountRequest() {
+    if (cache !== undefined) {
+      return cache;
+    }
+
+    const reactions = this.options.reactions.slice();
+    cache = reactions.map((reaction) => {
+      const code = `reactions_${reaction.toLowerCase()}`;
+      return `reactions.type(${reaction}).limit(0).summary(total_count).as(${code})`;
+    }).join(',');
+    return cache;
+  };
+}());
+
 module.exports = mangoReactions;
 export default mangoReactions;
