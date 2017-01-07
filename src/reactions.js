@@ -1,65 +1,24 @@
 import fetch from 'isomorphic-fetch';
 class mangoReactions {
-  constructor(options) {
-    // check defaults before copying
-    this.options = this.validateOptions(options);
+  constructor({
+    postID = this.mandatory(),
+    access_token = this.mandatory(),
+    callback = this.mandatory(),
+    refreshTime = 5,
+  }) {
+    this.options = this.mergeDefault({ postID, access_token, callback, refreshTime });
     this.init();
   }
-  validateOptions(options) {
-    const [url, defRefreshTime] = ['https://github.com/raulmangolin/mango-reactions', 5];
-    // prepare the variables;
-    let error = false;
-    let message = [];
-    let callback;
-    let postID;
-    let accessToken;
-    let refreshTime;
-    // check if callback exists and is a function
-    if (options.callback && typeof options.callback === 'function') {
-      callback = options.callback;
-    } else {
-      error = true;
-      message.push(`A callback function is required. See the documentation at ${url}.`);
-    }
-    // check if postID exists
-    if (options.postID) {
-      postID = options.postID;
-    } else {
-      error = true;
-      message.push(`A Facebook postID is required. See the documentation at ${url}.`);
-    }
-    // check if access_token exists
-    if (options.access_token) {
-      accessToken = options.access_token;
-    } else {
-      error = true;
-      message.push(`A Facebook access_token is required.
-        See the documentation at ${url}.`);
-    }
-    // check if refreshTime exists, if it's a number
-    // and if it's greater then zero
-    if (options.refreshTime &&
-      typeof options.refreshTime === 'number' &&
-      options.refreshTime > 0) {
-      refreshTime = options.refreshTime;
-    } else {
-      refreshTime = defRefreshTime;
-    }
-    // if error, throw an message with the errors and break;
-    if (error) {
-      throw message;
-    }
-    // create a new object with all the info
-    const result = {
-      postID,
-      access_token: accessToken,
-      refreshTime,
+  mandatory() {
+    throw new Error('oops missing parameters');
+  }
+  mergeDefault(options) {
+    // default object, for now it only has the reactions
+    const def = {
       reactions: ['LIKE', 'LOVE', 'WOW', 'HAHA', 'SAD', 'ANGRY'],
-      error,
-      message,
-      callback,
-      url,
     };
+    // create a new object with all the info
+    const result = Object.assign(def, options);
     // return result
     return result;
   }
@@ -71,27 +30,25 @@ class mangoReactions {
       return totalCount > 0 ? totalCount : 0;
     }
 
-    let result = {};
-    const postID = this.options.postID;
+    const { postID } = this.options;
+    // clone reactions
     const reactions = this.options.reactions.slice();
-    reactions.map((reaction) => {
-      result[reaction] = getTotalCount(postID, reaction);
-      // map to loop but not change anything ;p fix later
-      return reaction;
-    });
+    // generate a object based on reactions array
+    // with the proper count
+    const result = Object.assign(...reactions.map(reaction => ({
+      [reaction]: getTotalCount(postID, reaction),
+    })));
     return result;
   }
   doRequest() {
-    const postID = this.options.postID;
-    const accessToken = this.options.access_token;
+    const { postID, access_token, callback } = this.options;
     const query = this.memoizedMountRequest();
-    const callback = this.options.callback;
-    const url = `https://graph.facebook.com/v2.8/?ids=${postID}&fields=${query}&access_token=${accessToken}`;
+    const url = `https://graph.facebook.com/v2.8/?ids=${postID}&fields=${query}&access_token=${access_token}`;
     fetch(url)
     .then((blob) => blob.json())
     .then((data) => callback(this.parseRequest(data)))
     .catch((error) => {
-      throw error.message;
+      throw new Error(error.message);
     });
   }
   init() {
