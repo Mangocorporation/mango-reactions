@@ -22,7 +22,7 @@ var config = {
     library: 'mangoReactions',
     libraryTarget: 'umd',
     path: BUILD_DIR+'/',
-    filename: 'bundle.js'
+    filename: 'reactions.js'
   },
   module : {
     noParse: [
