@@ -20,6 +20,9 @@
     "url": "git+https://github.com/raulmangolin/mango-reactions.git"
   },
   "author": "Raul Mangolin <eu@raulmangolin.com>",
+  "contributors": [
+    "Pedro Costa Neves <neo.nyow@gmail.com>"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/raulmangolin/mango-reactions/issues"
@@ -61,10 +64,7 @@
     "phantomjs-polyfill": "0.0.2",
     "phantomjs-prebuilt": "^2.1.7",
     "sinon": "^1.17.4",
-    "webpack-dev-server": ""
-  },
-  "peerDependencies": {
-    "chai": "3.x",
+    "webpack-dev-server": "",
     "cheerio": "0.19.x || 0.20.x"
   }
 }

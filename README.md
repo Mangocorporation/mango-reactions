@@ -7,6 +7,10 @@ Show realtime Facebook Reactions from a live streaming video
 
 ##How to use
 ```javascript
+npm install mango-reactions --save
+```
+
+```javascript
 var mangoReactions = require('mango-reactions');
 
 var options = {
@@ -49,7 +53,7 @@ https://obsproject.com/forum/resources/how-to-stream-to-facebook-live.391/
 
 ##How to get the post ID
 
-![How to get the post ID](example/readme/postid.png) 
+![How to get the post ID](example/readme/postid.png)
 
 ###Thanks to
 * [@persocon](https://github.com/persocon) helps and pull requests
