@@ -1,6 +1,6 @@
 {
   "name": "mango-reactions",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Show realtime Facebook Reactions from a live streaming video",
   "browser": "./dist/reactions.js",
   "main": "./dist/reactions.js",
