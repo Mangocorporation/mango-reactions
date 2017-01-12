@@ -1,11 +1,13 @@
-#mangoReactions
 [![Build Status](https://travis-ci.org/raulmangolin/mango-reactions.svg?branch=master)](https://travis-ci.org/raulmangolin/mango-reactions)
+
+#mangoReactions
 
 Show realtime Facebook Reactions from a live streaming video
 
 ![Example](example/readme/example.png)
 
 ##How to use
+
 ```javascript
 npm install mango-reactions --save
 ```
@@ -29,6 +31,7 @@ function callbackFunction(data) {
 ```
 
 ###Options
+
 **callback** _required_
 
 This is the function that will be called every time the script runs
@@ -48,6 +51,7 @@ Default is **5 seconds**.
 
 
 ##How to start a live video
+
 I recommend you read this tutorial on how to start a streaming. It's very easy using the OBS App.
 https://obsproject.com/forum/resources/how-to-stream-to-facebook-live.391/
 
@@ -56,5 +60,6 @@ https://obsproject.com/forum/resources/how-to-stream-to-facebook-live.391/
 ![How to get the post ID](example/readme/postid.png)
 
 ###Thanks to
+
 * [@persocon](https://github.com/persocon) helps and pull requests
 * [@konpa](https://github.com/konpa/devicon)'s devicon
