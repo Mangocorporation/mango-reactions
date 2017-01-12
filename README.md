@@ -8,11 +8,11 @@ Show realtime Facebook Reactions from a live streaming video
 
 ##How to use
 
-```javascript
+``` javascript
 npm install mango-reactions --save
 ```
 
-```javascript
+``` javascript
 var mangoReactions = require('mango-reactions');
 
 var options = {
