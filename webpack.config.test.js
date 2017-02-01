@@ -8,7 +8,7 @@ var config = {
         'sinon': 'sinon/pkg/sinon'
     },
     root: [
-      path.resolve(__dirname, './src/app')
+      path.resolve(__dirname, './src')
     ],
     extensions: ['', '.js', '.json', '.jsx']
   },
