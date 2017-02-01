@@ -1,6 +1,6 @@
 var argv = require('yargs').argv;
 var path = require('path');
-var webpackConfig = require('./webpack.config.test');
+var webpackConfig = require('./webpack.config.test.js');
 
 module.exports = function(config) {
   config.set({
@@ -20,8 +20,7 @@ module.exports = function(config) {
       'karma-webpack',
       'karma-phantomjs-launcher',
       'karma-spec-reporter',
-      'karma-sourcemap-loader',
-      'karma-babel-preprocessor'
+      'karma-sourcemap-loader'
     ],
     preprocessors: {
       'test/test.bundle.js': ['webpack', 'sourcemap']
@@ -36,10 +35,6 @@ module.exports = function(config) {
         {'type': 'html', dir: 'coverage'},
         {'type': 'lcov'}
       ],
-    //   instrumenters: { isparta : require('isparta') },
-    //   instrumenter: {
-    //     '**/*.js': 'isparta'
-    //   }
     }
   });
 }

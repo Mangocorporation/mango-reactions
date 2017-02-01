@@ -5,9 +5,12 @@ class mangoReactions {
     access_token = this.mandatory(),
     callback = this.mandatory(),
     refreshTime = 5,
+    test = false,
   }) {
     this.options = this.mergeDefault({ postID, access_token, callback, refreshTime });
-    this.init();
+    if (!test) {
+      this.init();
+    }
   }
   mandatory() {
     throw new Error('oops missing parameters');
@@ -44,7 +47,7 @@ class mangoReactions {
     const { postID, access_token, callback } = this.options;
     const query = this.memoizedMountRequest();
     const url = `https://graph.facebook.com/v2.8/?ids=${postID}&fields=${query}&access_token=${access_token}`;
-    fetch(url)
+    return fetch(url)
     .then((blob) => blob.json())
     .then((data) => callback(this.parseRequest(data)))
     .catch((error) => {
