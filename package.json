@@ -1,5 +1,5 @@
 {
-  "name": "mango-reactions",
+  "name": "@mangocorporation/mango-reactions",
   "version": "2.2.3",
   "description": "Show realtime Facebook Reactions from a live streaming video",
   "browser": "./dist/reactions.js",
