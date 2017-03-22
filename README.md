@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/raulmangolin/mango-reactions.svg?branch=master)](https://travis-ci.org/raulmangolin/mango-reactions)
+[![Build Status](https://travis-ci.org/Mangocorporation/mango-reactions.svg?branch=master)](https://travis-ci.org/Mangocorporation/mango-reactions)
 
-# mangoReactions
+# mango-reactions
 
 Show realtime Facebook Reactions from a live streaming video
 
