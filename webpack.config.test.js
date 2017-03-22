@@ -21,24 +21,35 @@ var config = {
   node: {
     fs: "empty"
   },
+  // babel: {
+  //   presets: ['es2015', 'react'],
+  // },
+  // isparta: {
+  //   embedSource: true,
+  //   noAutoWrap: true,
+  //   // these babel options will be passed only to isparta and not to babel-loader
+  //   babel: {
+  //     presets: ['es2015', 'react']
+  //   }
+  // },
   module: {
     noParse: [
         /node_modules\/sinon\//,
     ],
-    preLoaders: [
-     {
-       test: /\.js?$/,
-       exclude: [
-         /node_modules/,
-         /test/
-       ],
-       loader: 'babel-loader'
-     },
-   ],
+  //   preLoaders: [
+  //    {
+  //      test: /\.jsx?$/,
+  //      exclude: [
+  //        /node_modules/,
+  //        /test/
+  //      ],
+  //      loader: 'babel-loader'
+  //    },
+  //  ],
     loaders: [
       {
         exclude: /node_modules/,
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         loader: 'babel-loader',
       }
     ]

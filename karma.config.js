@@ -20,8 +20,7 @@ module.exports = function(config) {
       'karma-webpack',
       'karma-phantomjs-launcher',
       'karma-spec-reporter',
-      'karma-sourcemap-loader',
-      'karma-babel-preprocessor'
+      'karma-sourcemap-loader'
     ],
     preprocessors: {
       'test/test.bundle.js': ['webpack', 'sourcemap']
@@ -36,10 +35,6 @@ module.exports = function(config) {
         {'type': 'html', dir: 'coverage'},
         {'type': 'lcov'}
       ],
-    //   instrumenters: { isparta : require('isparta') },
-    //   instrumenter: {
-    //     '**/*.js': 'isparta'
-    //   }
     }
   });
 }
